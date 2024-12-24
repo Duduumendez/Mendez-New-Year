@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Wishes from Duduu Mendez</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff0000, #009933);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #000;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #ffd700;
+            text-shadow: 1px 1px #000;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        .countdown div {
+            background: black;
+            padding: 20px 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .countdown div span {
+            display: block;
+            font-size: 2.5em;
+            color: #00ff00;
+            text-shadow: 0 0 8px #00ff00;
+        }
+
+        .countdown div p {
+            margin: 5px 0 0;
+            font-size: 0.9em;
+            color: #ffffff;
+        }
+
+        #reward-section {
+            margin-top: 30px;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .reward-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: absolute;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .code-display {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 8px #ffd700;
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎄 Christmas Wishes from Duduu Mendez 🎅</h1>
+        <p class="subtitle">To My Dear Friends and Family</p>
+        <div class="countdown" id="countdown">
+            <div>
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div>
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div>
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+            <div>
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+        <div id="reward-section" style="display: none;">
+            <p style="font-size: 1.5em; color: #ffd700; text-shadow: 0 0 5px #ffd700;">Choose Your Christmas Reward!</p>
+            <div id="button-container"></div>
+            <p id="code-display" class="code-display" style="display: none;"></p>
+        </div>
+        <!-- Background Christmas Song -->
+        <audio autoplay loop>
+            <source src="https://www.chosic.com/free-music/merry-christmas.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <script>
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        const rewardSection = document.getElementById('reward-section');
+        const codeDisplay = document.getElementById('code-display');
+        const buttonContainer = document.getElementById('button-container');
+
+        const rewards = Array.from({ length: 100 }, (_, i) => ({
+            code: (i + 1).toString().repeat(12).slice(0, 12)
+        }));
+
+        let animationInterval;
+        let isStopped = false;
+
+        function updateCountdown() {
+            const now = new Date();
+            const christmas = new Date(now.getFullYear(), 11, 25);
+            const diff = christmas - now;
+
+            if (diff <= 0) {
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minutesEl.textContent = '00';
+                secondsEl.textContent = '00';
+                clearInterval(interval);
+                rewardSection.style.display = 'block';
+                generateButtons();
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            daysEl.textContent = String(days).padStart(2, '0');
+            hoursEl.textContent = String(hours).padStart(2, '0');
+            minutesEl.textContent = String(minutes).padStart(2, '0');
+            secondsEl.textContent = String(seconds).padStart(2, '0');
+        }
+
+        function generateButtons() {
+            rewards.forEach((reward, index) => {
+                const button = document.createElement('button');
+                button.textContent = `🎁 Reward ${index + 1}`;
+                button.classList.add('reward-button');
+                button.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                button.style.left = `${Math.random() * 80}vw`;
+                button.style.top = `${Math.random() * 80}vh`;
+                button.addEventListener('click', () => showCode(reward.code));
+                buttonContainer.appendChild(button);
+            });
+
+            startButtonMovement();
+        }
+
+        function startButtonMovement() {
+            animationInterval = setInterval(() => {
+                if (!isStopped) {
+                    document.querySelectorAll('.reward-button').forEach(button => {
+                        button.style.left = `${Math.random() * 80}vw`;
+                        button.style.top = `${Math.random() * 80}vh`;
+                    });
+                }
+            }, 1000);
+        }
+
+        function stopButtonMovement() {
+            isStopped = true;
+            clearInterval(animationInterval);
+        }
+
+        function showCode(code) {
+            stopButtonMovement();
+            codeDisplay.textContent = `🎉 Your Voucher Code: ${code}`;
+            codeDisplay.style.display = 'block';
+
+            setTimeout(() => {
+                codeDisplay.style.display = 'none';
+                isStopped = false;
+                startButtonMovement();
+            }, 15000);
+        }
+
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
