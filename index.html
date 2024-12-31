@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy New Year 2025 from Duduu Mendez</title>
+    <title>HAPPY NEW YEAR 2025</title>
     <style>
+        /* General styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -13,69 +14,51 @@
             background-size: cover;
             color: white;
             text-align: center;
-            overflow: hidden;
-            position: relative;
         }
 
         .container {
             padding: 50px 20px;
-            background: rgba(0, 0, 0, 0.5); /* Slight overlay for readability */
+            background: rgba(0, 0, 0, 0.6);
         }
 
         h1 {
             font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px #000;
+            text-shadow: 2px 2px #000;
+            animation: glow 2s infinite alternate;
         }
 
-        .subtitle {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            font-style: italic;
-            color: #ffd700;
-            text-shadow: 1px 1px #000;
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 10px #ff00ff, 2px 2px 20px #ff0099;
+            }
+            to {
+                text-shadow: 2px 2px 20px #ff00ff, 2px 2px 30px #ff0099;
+            }
         }
 
         #countdown {
+            margin: 20px auto;
             display: flex;
             justify-content: center;
-            gap: 6px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            gap: 20px;
         }
 
         .time-unit {
             font-size: 3em;
-            color: #00ff00;
-            font-weight: bold;
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-            padding: 10px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
-        }
-
-        .label {
-            display: block;
-            font-size: 0.7em;
-            color: #ffd700;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-        #wishes {
-            margin-top: 30px;
             padding: 20px;
-            font-size: 1.5em;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
-            color: #ffcc00;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            text-shadow: 2px 2px 5px #000;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        .reward-button {
+            padding: 15px 30px;
+            font-size: 1em;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: linear-gradient(to bottom, #0066ff, #003399);
+            color: white;
         }
 
         #reward-section {
@@ -83,121 +66,92 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            visibility: hidden; /* Hide until countdown ends */
+            gap: 10px;
+            visibility: hidden; /* Initially hidden until countdown ends */
         }
 
-        .reward-button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: white;
-            border: none;
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: white;
+            color: black;
             border-radius: 10px;
-            cursor: pointer;
-            background: linear-gradient(to bottom, #ff0066, #cc0099);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease-in-out;
+            display: none; /* Initially hidden */
         }
 
-        .reward-button:hover {
-            transform: scale(1.1);
-        }
-
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffcc00;
+        .modal p {
             font-size: 1.2em;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
-            text-align: center;
         }
 
-        footer a {
-            color: #ffcc00;
-            text-decoration: none;
-            font-weight: bold;
+        .modal button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            background: #28a745;
+            color: white;
+            border-radius: 5px;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .animated-header {
+            background: linear-gradient(to right, #ff0066, #0033cc);
+            padding: 10px;
+            font-size: 1.5em;
+            animation: slide 10s linear infinite;
         }
 
-        /* Responsive Styling */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            .time-unit {
-                font-size: 2em;
-            }
-            .reward-button {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
-            footer {
-                font-size: 1em;
-            }
+        @keyframes slide {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
         }
     </style>
 </head>
 <body>
+    <div class="animated-header">🎉 WELCOME TO DUDUU MENDEZ COMMUNITY - HAPPY NEW YEAR 2025 🎉</div>
     <div class="container">
         <h1>🎆 HAPPY NEW YEAR 2025 🎇</h1>
-        <p class="subtitle">From Duduu Mendez - Wishing You All the Best!</p>
         <div id="countdown">
-            <div class="time-unit">
-                <span id="days">00</span>
-                <span class="label">DAYS</span>
-            </div>
-            <div class="time-unit">
-                <span id="hours">00</span>
-                <span class="label">HOURS</span>
-            </div>
-            <div class="time-unit">
-                <span id="minutes">00</span>
-                <span class="label">MINUTES</span>
-            </div>
-            <div class="time-unit">
-                <span id="seconds">00</span>
-                <span class="label">SECONDS</span>
-            </div>
-        </div>
-        <div id="wishes">
-            🎉 Let’s welcome 2025 with open arms! From the <strong>Duduu Mendez Community</strong>, we wish you and your loved ones abundant joy, success, and prosperity this New Year. Here's to making incredible memories together! 🥂
+            <div class="time-unit" id="days">00</div>
+            <div class="time-unit" id="hours">00</div>
+            <div class="time-unit" id="minutes">00</div>
+            <div class="time-unit" id="seconds">00</div>
         </div>
         <div id="reward-section"></div>
-        <footer>
-            Designed with ❤️ by <a href="#">Duduu Mendez</a>. Wishing you a prosperous and joyful New Year 2025!
-        </footer>
-        <!-- Background Song -->
-        <audio autoplay loop>
-            <source src="https://www.chosic.com/free-music/happy-new-year.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
     </div>
+
+    <div class="modal" id="reward-modal">
+        <p id="reward-message"></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
     <script>
-        const daysElement = document.getElementById('days');
-        const hoursElement = document.getElementById('hours');
-        const minutesElement = document.getElementById('minutes');
-        const secondsElement = document.getElementById('seconds');
         const rewardSection = document.getElementById('reward-section');
+        const modal = document.getElementById('reward-modal');
+        const rewardMessage = document.getElementById('reward-message');
+        const countdownElements = {
+            days: document.getElementById('days'),
+            hours: document.getElementById('hours'),
+            minutes: document.getElementById('minutes'),
+            seconds: document.getElementById('seconds'),
+        };
 
-        const rewards = Array.from({ length: 50 }, (_, i) => ({
-            code: (i + 1).toString().repeat(12).slice(0, 12)
-        }));
-
-        function generateButtons() {
-            for (let i = 0; i < rewards.length; i++) {
-                const button = document.createElement('button');
-                button.textContent = `🎁 Reward ${i + 1}`;
-                button.classList.add('reward-button');
-                button.addEventListener('click', () => alert(`Your reward code: ${rewards[i].code}`));
-                rewardSection.appendChild(button);
-            }
-        }
+        const rewards = {
+            4: { type: "voucher", message: "VODACOM: 813022345352059" },
+            7: { type: "voucher", message: "AIRTEL: 40976453108216" },
+            10: { type: "gift", message: "You won free 100 Instagram likes!", link: "https://wa.me/255749750707?text=Hi+*DUDUU_MENDEZ*,+REWARD+CLAIMED+INSTAGRAM+LIKES+please:-" },
+            12: { type: "voucher", message: "HALOTEL: 5854912047405" },
+            15: { type: "gift", message: "You won free 100 Instagram likes!", link: "https://wa.me/255749750707?text=Hi+*DUDUU_MENDEZ*,+REWARD+CLAIMED+INSTAGRAM+LIKES+please:-" },
+            20: { type: "gift", message: "You won a free WhatsApp Bot!", link: "https://wa.me/255749750707?text=Hi+*DUDUU_MENDEZ*,+REWARD+CLAIMED+WHATSAPP+BOT+please:-" },
+            25: { type: "voucher", message: "TIGO: 273632416118882" },
+            30: { type: "gift", message: "You won free 100 Instagram likes!", link: "https://wa.me/255749750707?text=Hi+*DUDUU_MENDEZ*,+REWARD+CLAIMED+INSTAGRAM+LIKES+please:-" },
+            35: { type: "gift", message: "You won a free WhatsApp Bot!", link: "https://wa.me/255749750707?text=Hi+*DUDUU_MENDEZ*,+REWARD+CLAIMED+WHATSAPP+BOT+please:-" },
+            38: { type: "voucher", message: "VODACOM: 813022345352059" },
+            40: { type: "voucher", message: "TIGO: 273632416118882" },
+            50: { type: "gift", message: "You won free AZAM TV APK!", link: "https://wa.me/255749750707?text=Hi+*DUDUU_MENDEZ*,+REWARD+CLAIMED+AZAM+TV+please:-" },
+        };
 
         function updateCountdown() {
             const targetDate = new Date('January 1, 2025 00:00:00').getTime();
@@ -205,11 +159,11 @@
             const difference = targetDate - now;
 
             if (difference <= 0) {
-                daysElement.textContent = "00";
-                hoursElement.textContent = "00";
-                minutesElement.textContent = "00";
-                secondsElement.textContent = "00";
-                rewardSection.style.visibility = "visible";
+                countdownElements.days.textContent = '00';
+                countdownElements.hours.textContent = '00';
+                countdownElements.minutes.textContent = '00';
+                countdownElements.seconds.textContent = '00';
+                rewardSection.style.visibility = 'visible'; // Show rewards
                 return;
             }
 
@@ -218,14 +172,48 @@
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            daysElement.textContent = days < 10 ? `0${days}` : days;
-            hoursElement.textContent = hours < 10 ? `0${hours}` : hours;
-            minutesElement.textContent = minutes < 10 ? `0${minutes}` : minutes;
-            secondsElement.textContent = seconds < 10 ? `0${seconds}` : seconds;
+            countdownElements.days.textContent = days.toString().padStart(2, '0');
+            countdownElements.hours.textContent = hours.toString().padStart(2, '0');
+            countdownElements.minutes.textContent = minutes.toString().padStart(2, '0');
+            countdownElements.seconds.textContent = seconds.toString().padStart(2, '0');
         }
 
-        generateButtons();
+        function displayRewards() {
+            for (let i = 1; i <= 50; i++) {
+                const button = document.createElement('button');
+                button.textContent = `🎁 Reward ${i}`;
+                button.classList.add('reward-button');
+                button.addEventListener('click', () => {
+                    showReward(i);
+                });
+                rewardSection.appendChild(button);
+            }
+        }
+
+        function showReward(buttonNumber) {
+            const reward = rewards[buttonNumber];
+            if (reward) {
+                if (reward.type === "gift" && reward.link) {
+                    rewardMessage.innerHTML = `
+                        <strong>${reward.message}</strong><br>
+                        <a href="${reward.link}" target="_blank">
+                            <button>CLAIM IT</button>
+                        </a>
+                    `;
+                } else {
+                    rewardMessage.innerHTML = `<strong>${reward.message}</strong>`;
+                }
+                modal.style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Initialize
         setInterval(updateCountdown, 1000);
+        displayRewards();
     </script>
 </body>
-</html>
+    </html>
